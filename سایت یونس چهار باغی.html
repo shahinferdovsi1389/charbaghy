@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>گچکاری یونس چهارباغی</title>
+    <style>
+        /* استایل کلی سایت */
+        body {
+            font-family: Tahoma, sans-serif;
+            direction: rtl;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+
+        section {
+            padding: 20px;
+            margin: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        #about p {
+            line-height: 1.6;
+        }
+
+        #image-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        #image-container img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #contact a {
+            color: #4CAF50;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #4CAF50;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 80%;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* استایل برای فرم کد */
+        .code-section {
+            margin-top: 30px;
+        }
+
+        .code-section input[type="text"] {
+            width: 60%;
+            margin-right: 10px;
+        }
+
+        .code-section button {
+            width: 35%;
+        }
+
+        /* استایل برای جستجو */
+        .search-container {
+            margin-top: 20px;
+        }
+
+        .search-results {
+            margin-top: 20px;
+            background-color: #e0ffe0;
+            padding: 10px;
+            border: 1px solid #4CAF50;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .search-results h3 {
+            margin: 0;
+            color: #4CAF50;
+        }
+
+        /* استایل برای پایین صفحه */
+        footer {
+            background-color: #333;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+            border-top: 5px solid #4CAF50;
+        }
+        
+        .footer-info {
+            color: #bbb;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>گچکاری یونس چهارباغی</h1>
+        <p>تمام گچکاری‌های نیشابور پذیرفته می‌شود</p>
+    </header>
+
+    <section id="about">
+        <h2>درباره گچکاری یونس چهارباغی</h2>
+        <p>یونس چهارباغی با تجربه در گچکاری و ساخت انواع طرح‌های زیبا، خدماتی عالی در نیشابور ارائه می‌دهد. خدمات ما شامل انواع گچکاری‌های دیواری، سقفی، طراحی‌های هنری و تعمیرات تخصصی گچکاری است.</p>
+    </section>
+
+    <section id="gallery">
+        <h2>گالری تصاویر</h2>
+        <div id="image-container">
+            <img src="https://via.placeholder.com/300" alt="گچکاری یونس چهارباغی">
+            <img src="https://via.placeholder.com/300" alt="گچکاری یونس چهارباغی">
+            <img src="https://via.placeholder.com/300" alt="گچکاری یونس چهارباغی">
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>تماس با ما</h2>
+        <p>برای تماس و اطلاعات بیشتر با شماره زیر تماس بگیرید:</p>
+        <p><a href="tel:+989907794381">+989907794381</a></p>
+    </section>
+
+    <section id="search" class="search-container">
+        <h2>جستجو</h2>
+        <form onsubmit="return handleSearch()">
+            <input type="text" id="search-query" placeholder="جستجو...">
+            <button type="submit">جستجو</button>
+        </form>
+
+        <div id="search-results" class="search-results">
+            <h3>نتایج جستجو:</h3>
+            <ul id="result-list"></ul>
+        </div>
+    </section>
+
+    <section class="code-section">
+        <h2>ویرایش سایت</h2>
+        <p>برای ویرایش سایت، کد مخصوص را وارد کنید:</p>
+        <input type="text" id="code-input" placeholder="کد مخصوص">
+        <button onclick="checkCode()">ورود</button>
+        <div id="edit-section" style="display: none;">
+            <h3>شما می‌توانید سایت را ویرایش کنید!</h3>
+            <p>در این بخش، شما می‌توانید عکس‌ها را بارگذاری کرده و متن‌ها را تغییر دهید.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 گچکاری یونس چهارباغی. همه حقوق محفوظ است.</p>
+        <p class="footer-info">تمامی خدمات گچکاری با کیفیت بالا در نیشابور ارائه می‌شود.</p>
+    </footer>
+
+    <script>
+        // بررسی کد ورود برای ویرایش سایت
+        function checkCode() {
+            const code = document.getElementById('code-input').value;
+            const editSection = document.getElementById('edit-section');
+            if (code === 'f1369306f') {
+                editSection.style.display = 'block';
+                alert("شما می‌توانید سایت را ویرایش کنید.");
+            } else {
+                alert("کد وارد شده صحیح نیست.");
+            }
+        }
+
+        // جستجوی کلمات خاص
+        function handleSearch() {
+            const query = document.getElementById('search-query').value.toLowerCase();
+            const validQueries = [
+                'یونس چهارباغی',
+                'گچکاری در نیشابور',
+                'بهترین گچکار نیشابور',
+                'یونس چهارباغی گچکاری نیشابور'
+            ];
+            const resultList = document.getElementById('result-list');
+            const searchResults = document.getElementById('search-results');
+            resultList.innerHTML = '';
+
+            if (validQueries.includes(query)) {
+                searchResults.style.display = 'block';
+                resultList.innerHTML = `<li>نتایج برای: ${query}</li>`;
+            } else {
+                searchResults.style.display = 'none';
+                alert("هیچ نتیجه‌ای برای جستجو یافت نشد.");
+            }
+            return false;
+        }
+    </script>
+
+</body>
+</html>
